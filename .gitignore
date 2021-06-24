@@ -9,6 +9,7 @@ bin-release/
 .jshintrc
 src
 .vscode
+node_modules
 
 # Executables
 *.swf
