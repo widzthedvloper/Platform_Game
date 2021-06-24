@@ -4,7 +4,11 @@
   "description": "This game consists of one player running and jumping around, gathering stars and other elements while avoiding baddies. There's no point limit to the game. The player can increase his score indefinitely by never get hit by baddies. The challenging part is that after collecting all the stars in the scene, the number of baddies increments.",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "dev": "webpack --mode development",
+    "watch": "webpack --watch",
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,21 @@
   "bugs": {
     "url": "https://github.com/widzthedvloper/Platform_Game/issues"
   },
-  "homepage": "https://github.com/widzthedvloper/Platform_Game#readme"
+  "homepage": "https://github.com/widzthedvloper/Platform_Game#readme",
+    "devDependencies": {
+    "babel-eslint": "10.1.x",
+    "css-loader": "^5.2.4",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "jest": "^27.0.4",
+    "style-loader": "^2.0.0",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.7.2"
+  }
 }

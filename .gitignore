@@ -8,6 +8,7 @@ bin-release/
 .settings/
 .jshintrc
 src
+.vscode
 
 # Executables
 *.swf
