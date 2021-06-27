@@ -46,4 +46,4 @@ export default class CreditsScene extends Phaser.Scene {
       }.bind(this)
     });
   }
-};
+}
