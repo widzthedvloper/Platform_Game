@@ -3,6 +3,6 @@ import 'phaser';
 export default {
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: window.innerWidth,
-  height: window.innerHeight
+  width: 800, // window.innerWidth,
+  height: 600 // window.innerHeight
 };
