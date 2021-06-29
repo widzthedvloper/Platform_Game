@@ -61,6 +61,21 @@ export default class GameScene extends Phaser.Scene {
         frameRate: 10,
         repeat: -1
     });
+
+    this.playerJumps = 0;
+
+    this.input.on("pointerdown", this.jump, this);
+
+  }
+
+  jump(){
+        if(this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)){
+            if(this.player.body.touching.down){
+                this.playerJumps = 0;
+            }
+            this.player.setVelocityY(gameOptions.jumpForce * -1);
+            this.playerJumps ++;
+        }
   }
 
   addPlatform(platformWidth, posX){
@@ -126,11 +141,6 @@ export default class GameScene extends Phaser.Scene {
             this.player.setVelocityX(0);
 
             this.player.anims.play('turn');
-        }
-
-        if (cursors.up.isDown && this.player.body.touching.down)
-        {
-            this.player.setVelocityY(-330);
         }
   }
 }
