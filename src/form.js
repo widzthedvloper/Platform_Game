@@ -6,6 +6,7 @@ const createForm = () => {
   const nameInput = document.createElement('input');
   nameInput.setAttribute('type', 'text');
   nameInput.setAttribute('id', 'name-input');
+  nameInput.setAttribute('placeholder', 'Your name here!');
 
   myForm.appendChild(nameInput);
 
