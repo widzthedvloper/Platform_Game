@@ -7,7 +7,10 @@ let gameOptions = {
     playerGravity: 900,
     jumpForce: 400,
     playerStartPosition: 200,
-    jumps: 2
+    jumps: 2,
+    score: 0,
+    tomatoPercent: 25,
+    platformVerticalLimit: [0.4, 0.8],
 };
 
 export default class GameScene extends Phaser.Scene {
@@ -16,6 +19,8 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create () {
+    this.addedPlatforms = 0;
+
     this.add.image(400, 300, 'bgScene');
     // Group all active platform
     this.platformGroup = this.add.group({
@@ -31,6 +36,24 @@ export default class GameScene extends Phaser.Scene {
         platform.scene.platformGroup.add(platform);
       }
     });
+
+      this.tomatoGroup = this.add.group({
+ 
+        // once a coin is removed, it's added to the pool
+      removeCallback: function(tomato){
+            tomato.scene.tomatoPool.add(tomato);
+          }
+      });
+ 
+      // coin pool
+      this.tomatoPool = this.add.group({
+ 
+      // once a coin is removed from the pool, it's added to the active coins group
+      removeCallback: function(tomato){
+          tomato.scene.tomatoGroup.add(tomato);
+        }
+      });
+
     // add platform
     this.addPlatform(game.config.width, game.config.width/2);
 
@@ -38,9 +61,28 @@ export default class GameScene extends Phaser.Scene {
     this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, 'actor');
     this.player.setGravityY(gameOptions.playerGravity);
 
+    // add collision between player andtomato
+    this.physics.add.overlap(this.player, this.tomatoGroup, function(player, tomato){
+            this.tweens.add({
+                targets: tomato,
+                y: tomato.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    this.tomatoGroup.killAndHide(tomato);
+                    this.tomatoGroup.remove(tomato);
+                }
+            });
+            this.collectTomato(tomato);
+    }, null, this);
+
     // set collisions
 
     this.physics.add.collider(this.player, this.platformGroup);
+
+    // setting collisions between the actor and the tomato Group
 
     this.anims.create({
         key: 'left',
@@ -62,9 +104,21 @@ export default class GameScene extends Phaser.Scene {
         repeat: -1
     });
 
+    // this.physics.add.collider(this.tomatoes, this.platformPool);
+
     this.playerJumps = 0;
 
     this.input.on("pointerdown", this.jump, this);
+
+    this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#00'});
+    this.score = 0;
+  }
+
+  collectTomato(tomato)
+  {
+    tomato.disableBody(true, true);
+    this.score += 10;
+    this.scoreText.setText('Score: ' + this.score);
 
   }
 
@@ -79,6 +133,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   addPlatform(platformWidth, posX){
+        this.addedPlatforms ++;
         let platform;
         if(this.platformPool.getLength()){
             platform = this.platformPool.getFirst();
@@ -94,7 +149,28 @@ export default class GameScene extends Phaser.Scene {
             this.platformGroup.add(platform);
         }
         platform.displayWidth = platformWidth;
-        this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
+        this.nextPlatformDistance = Phaser.Math.Between(30, 160);
+        
+        if(this.addedPlatforms > 1){
+            if(Phaser.Math.Between(1, 100) <= gameOptions.tomatoPercent){
+                if(this.tomatoPool.getLength()){
+                    let tomato = this.tomatoPool.getFirst();
+                    tomato.x = posX;
+                    tomato.y = 300 - 96;
+                    tomato.alpha = 1;
+                    tomato.active = true;
+                    tomato.visible = true;
+                    this.tomatoPool.remove(tomato);
+                }
+                else{
+                    let tomato = this.physics.add.sprite(posX, 400 - 96, "tomato");
+                    tomato.setImmovable(true);
+                    tomato.setVelocityX(platform.body.velocity.x);
+                    this.tomatoGroup.add(tomato);
+                }
+            }
+        }
+
   }
 
   update(){
@@ -122,25 +198,8 @@ export default class GameScene extends Phaser.Scene {
             this.addPlatform(nextPlatformWidth, game.config.width + nextPlatformWidth / 2);
         }
 
-        var cursors = this.input.keyboard.createCursorKeys();
+        this.player.setVelocityX(0);
 
-        if (cursors.left.isDown)
-        {
-            this.player.setVelocityX(-160);
-
-            this.player.anims.play('left', true);
-        }
-        else if ( cursors.right.isDown )
-        {
-            this.player.setVelocityX(160);
-
-            this.player.anims.play('right', true);
-        }
-        else
-        {
-            this.player.setVelocityX(0);
-
-            this.player.anims.play('turn');
-        }
+        this.player.anims.play('turn');
   }
 }
