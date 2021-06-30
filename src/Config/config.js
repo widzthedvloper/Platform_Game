@@ -6,6 +6,6 @@ export default {
   width: 800, // window.innerWidth,
   height: 600, // window.innerHeight
   physics: {
-            default: "arcade"
+    default: "arcade"
   }
 };
