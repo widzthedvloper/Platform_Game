@@ -23,6 +23,11 @@ export default class LeaderBoardScene extends Phaser.Scene {
     this.menuButton.on('pointerdown', () => {
       this.scene.start('Title');
     });
+
+    if (document.getElementById('form') !== null) {
+      document.getElementById('form').remove();
+    }
+
   }
 
   async displayHighestScores(){

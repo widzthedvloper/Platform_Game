@@ -24,6 +24,10 @@ export default class TitleScene extends Phaser.Scene {
       this.model.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
+
+    if (document.getElementById('form') !== null) {
+      document.getElementById('form').remove();
+    }
   }
 
   centerButton (gameObject, offset = 0) {

@@ -9,7 +9,7 @@ export default class GameOverScene extends Phaser.Scene {
   }
   
   create() {
-    this.add.image(400, 300, 'gameOver');
+    this.add.image(400, 200, 'gamOver');
     
     document.body.appendChild(createForm());
 
