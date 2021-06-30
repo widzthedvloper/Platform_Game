@@ -10,6 +10,7 @@ This game consists of one player running and jumping around, gathering stars and
 - JAVASCRIPT
 - WEBPACK
 - BOOTSTRAP
+- Phaser 3
 
 ## Getting Started
 
@@ -20,11 +21,11 @@ This game consists of one player running and jumping around, gathering stars and
 
 ## Instructions
 
-- Use your mouse left key to jump. click twice to double jump. It only works once after you live the ground.
-- you can you the left and right arrow key but there's not much you can do with them, try them!
-- Each time you collect a tomato you get yourself an additional 10 point.
+- Use your mouse left key to jump. Click twice to double jump. It only works once after you live on the ground.
+- you can you the left and right arrow keys, but there's not much you can do with them. Try them!
+- Each time you collect a tomato, you'll get yourself an additional 10 points.
 - the game ends when you fall from the ground.
-- You'll be prompt to enter your name and you can hit the leaderbord button to see people better than yourself :)
+- You'll be prompt to enter your name. You can hit the leaderboard button to see people better than yourself :)
 - Enjoy!!!
 
 ## Authors
