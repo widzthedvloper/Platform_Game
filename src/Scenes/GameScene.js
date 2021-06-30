@@ -119,8 +119,9 @@ export default class GameScene extends Phaser.Scene {
     tomato.disableBody(true, true);
     this.score += 10;
     this.scoreText.setText('Score: ' + this.score);
-
+    game.config.score = this.score;
   }
+
 
   jump(){
         if(this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)){
@@ -177,7 +178,7 @@ export default class GameScene extends Phaser.Scene {
  
         // game over
         if(this.player.y > game.config.height){
-            this.scene.start("Game");
+            this.scene.start("GameOver");
         }
         this.player.x = gameOptions.playerStartPosition;
  
