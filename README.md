@@ -5,7 +5,7 @@ This game consists of one player running and jumping around, gathering stars and
 
 ## Game Design
 
-![ScreenShot](./api.png)
+![ScreenShot](./design.png)
 
 ## Live Version
 
