@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+
 const getScores = async () => {
   try {
     const apiResponse = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/y3AqkaM7j6qpW6NV4xkJ/scores/');
@@ -16,7 +17,7 @@ const sendScore = async (name, score) => {
   try {
     const apiResponse = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/y3AqkaM7j6qpW6NV4xkJ/scores/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params),
     });
     return apiResponse.json();

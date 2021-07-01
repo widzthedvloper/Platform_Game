@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { getScores }  from '../api';
+import { getScores } from '../api';
 
 export default class LeaderBoardScene extends Phaser.Scene {
   constructor() {
@@ -27,10 +27,9 @@ export default class LeaderBoardScene extends Phaser.Scene {
     if (document.getElementById('form') !== null) {
       document.getElementById('form').remove();
     }
-
   }
 
-  async displayHighestScores(){
+  async displayHighestScores() {
     getScores();
     const data = await getScores();
     const highestScores = data.sort((a, b) => b.score - a.score).slice(0, 10);
