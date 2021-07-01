@@ -21,7 +21,7 @@ This game consists of one player running and jumping around, gathering stars and
 
 ## Instructions
 
-- Use your mouse left key to jump. Click twice to double jump. It only works once after you live on the ground.
+- Use your mouse left key to jump. Click twice to double jump. It only works once after you leaving the ground.
 - you can you the left and right arrow keys, but there's not much you can do with them. Try them!
 - Each time you collect a tomato, you'll get yourself an additional 10 points.
 - the game ends when you fall from the ground.
