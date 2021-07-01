@@ -6,7 +6,7 @@ This game consists of one player running and jumping around, gathering tomatoes 
 
 ## Game Design
 
-[ScreenShot](./design.md)
+[Game Design link](./design.md)
 
 ## Live Version
 
