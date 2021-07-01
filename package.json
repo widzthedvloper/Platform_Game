@@ -1,0 +1,45 @@
+{
+  "name": "phaser3-project-template-3",
+  "version": "1.0.0",
+  "description": "A Phaser 3 Project Template",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "start": "npm run build && webpack-dev-server --port=8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://scottwestover@bitbucket.org/creativerendering/phaser3-template.git"
+  },
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "bugs": {
+    "url": "https://github.com/photonstorm/phaser3-project-template/issues"
+  },
+  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/runtime": "^7.14.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^27.0.6",
+    "jest-fetch-mock": "^3.0.3",
+    "phaser": "^3.3.0",
+    "raw-loader": "^0.5.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.11.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "phaser": "^3.55.2",
+    "regenerator-runtime": "^0.13.7"
+  }
+}

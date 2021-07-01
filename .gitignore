@@ -7,7 +7,8 @@ bin-release/
 # Other files and folders
 .settings/
 .jshintrc
-src
+.vscode
+node_modules
 
 # Executables
 *.swf
