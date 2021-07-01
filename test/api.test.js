@@ -23,6 +23,30 @@ describe('getScores', () => {
     const response = await getScores();
     expect(response).not.toBeNull();
   });
+
+  it('should return a response with users score', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 3000, user: 'Marco' }] }));
+    const response = await getScores();
+    expect(response[0].score).toEqual(3000);
+  });
+
+  it('should NOT return a response that is wrong', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 3000, user: 'Marco' }] }));
+    const response = await getScores();
+    expect(response[0].score).not.toEqual(3000);
+  });
+
+  it('should NOT return a response that is undefined', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 3000, user: 'Marco' }] }));
+    const response = await getScores();
+    expect(response[0].score).not.toBeUndefined();
+  });
+
+  it('should NOT return a response that is Null', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 3000, user: 'Marco' }] }));
+    const response = await getScores();
+    expect(response[0].score).not.toBeNull();
+  });
 });
 
 describe('sendScore', () => {
