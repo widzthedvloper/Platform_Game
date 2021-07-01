@@ -11,7 +11,10 @@ export default class GameOverScene extends Phaser.Scene {
 
   create() {
     this.add.image(400, 200, 'gamOver');
-    this.scoreText = this.add.text(16, 16, `your score: ${game.config.score}`, { fontSize: '32px', fill: '#00' });
+    if (game.config.score === undefined) {
+      game.config.score = 0;
+    }
+    this.scoreText = this.add.text(16, 16, `your score: ${game.config.score}`, { fontSize: '32px', fill: '#fff' });
 
     document.body.appendChild(createForm());
 
