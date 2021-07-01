@@ -31,7 +31,7 @@ describe('getScores', () => {
   });
 
   it('should NOT return a response that is wrong', async () => {
-    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 3000, user: 'Marco' }] }));
+    fetch.mockResponseOnce(JSON.stringify({ result: [{ score: 4000, user: 'Marco' }] }));
     const response = await getScores();
     expect(response[0].score).not.toEqual(3000);
   });
