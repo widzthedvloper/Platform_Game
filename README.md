@@ -15,18 +15,26 @@ This game consists of one player running and jumping around, gathering stars and
 ## Getting Started
 
 - Open the terminal command line.
-- Clone the repo:--> git clone url/ssh
-- cd Platform_Game
-- npm install
+- Clone the repo:--> git clone URL/ssh
+- `cd Platform_Game` to make sure you are at the root of the game.
+- `npm install` to install all the dependencies
+- `npm run start` to start the server
+- preferably in a modern browser go to localhost:8000/ and start playing.
 
 ## Instructions
 
-- Use your mouse left key to jump. Click twice to double jump. It only works once after you leaving the ground.
+- Use your mouse left key to jump. Click twice to double jump. It only works once after you leave the ground.
+- Make sure your mouse is in the surface area of the game or else when you click the player will not jump.
 - you can you the left and right arrow keys, but there's not much you can do with them. Try them!
 - Each time you collect a tomato, you'll get yourself an additional 10 points.
 - the game ends when you fall from the ground.
 - You'll be prompt to enter your name. You can hit the leaderboard button to see people better than yourself :)
 - Enjoy!!!
+
+## Test
+
+- Non-functions were tested using Jest
+-use the command `npm run test` in your terminal to see the tests
 
 ## Authors
 
