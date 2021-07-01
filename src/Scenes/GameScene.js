@@ -5,7 +5,7 @@
 import 'phaser';
 
 const gameOptions = {
-  platformStartSpeed: 350,
+  platformStartSpeed: 200,
   spawnRange: [100, 350],
   platformSizeRange: [50, 250],
   playerGravity: 900,
