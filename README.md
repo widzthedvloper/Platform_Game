@@ -18,7 +18,7 @@ This game consists of one player running and jumping around, gathering stars and
 - Clone the repo:--> git clone URL/ssh
 - `cd Platform_Game` to make sure you are at the root of the game.
 - `npm install` to install all the dependencies
-- `npm run start` to start the server
+- `npm start` to start the server
 - preferably in a modern browser go to localhost:8000/ and start playing.
 
 ## Instructions
